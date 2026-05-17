@@ -1,0 +1,192 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Rotation360 from '../components/Rotation360'
+import type { PageProps, Project } from '../types'
+
+const ALL_PROJECTS: Project[] = [
+  {
+    id: 1,
+    title: 'Tagmo3 5',
+    tag: 'Residential',
+    year: '2025',
+    location: 'Lisbon',
+    description: 'A considered family home where warm timber, handmade ceramics and abundant natural light create a sense of grounded calm.',
+    img: '/images/project1.jpg',
+  },
+  {
+    id: 2,
+    title: 'Masr El Gedid',
+    tag: 'Hospitality',
+    year: '2024',
+    location: 'Comporta',
+    description: 'Boutique hospitality project balancing coastal lightness with rich material textures — raw linen, aged brass, and rammed earth.',
+    img: '/images/project2.jpg',
+  },
+  {
+    id: 3,
+    title: '6 of October',
+    tag: 'Commercial',
+    year: '2024',
+    location: 'Porto',
+    description: 'Studio and showroom space for a fashion brand. A restrained palette — white plaster, blackened steel, pale oak — lets the work breathe.',
+    img: '/images/project3.jpg',
+  },
+  {
+    id: 4,
+    title: 'Bel Air Residence',
+    tag: 'Residential',
+    year: '2023',
+    location: 'Cairo',
+    description: 'Private villa rethought around a central courtyard. Traditional proportions, contemporary restraint.',
+    img: '/images/project4.jpg',
+  },
+  {
+    id: 5,
+    title: 'Coastal Retreat',
+    tag: 'Residential',
+    year: '2023',
+    location: 'Sintra',
+    description: 'Clifftop house where every room frames the Atlantic. Palette drawn entirely from the landscape — salt, stone, sea grass.',
+    img: '/images/project5.jpg',
+  },
+  {
+    id: 6,
+    title: 'The Garden Suite',
+    tag: 'Hospitality',
+    year: '2022',
+    location: 'Lisbon',
+    description: 'A single guest suite above a historic garden. Jewel-toned fabrics and antique stone contrast beautifully with the old city outside.',
+    img: '/images/project6.jpg',
+  },
+]
+
+const FILTERS = ['All', 'Residential', 'Hospitality', 'Commercial'] as const
+type Filter = typeof FILTERS[number]
+
+export default function Projects({ onNav }: PageProps) {
+  const [active, setActive] = useState<Filter>('All')
+
+  const filtered = active === 'All'
+    ? ALL_PROJECTS
+    : ALL_PROJECTS.filter(p => p.tag === active)
+
+  return (
+    <div>
+      {/* ── Header ── */}
+      <section className="relative h-screen overflow-hidden flex flex-col justify-end">
+        <img src="/images/project5.jpg" alt="Projects"
+          className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/40 to-black/10" />
+
+        <motion.div
+          className="relative z-10 max-w-6xl w-full mx-auto px-8 md:px-12 pb-12"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
+            Our Work
+          </span>
+          <h1 className="font-display font-light text-cream leading-[1.05]"
+            style={{ fontSize: 'clamp(52px, 6vw, 88px)' }}>
+            A selection of<br />recent work.
+          </h1>
+          <p className="font-body text-[14px] font-light text-cream/55 max-w-md mt-5 leading-relaxed mb-9">
+            Six projects shaped by a shared approach — warm materials, generous light, quiet order.
+          </p>
+
+          {/* Filters */}
+          <div className="flex flex-wrap gap-2">
+            {FILTERS.map(f => (
+              <motion.button
+                key={f}
+                onClick={() => setActive(f)}
+                className={`text-[10px] tracking-[0.22em] uppercase px-5 py-2 font-body border transition-all duration-200 ${
+                  active === f
+                    ? 'bg-cream text-charcoal border-cream'
+                    : 'border-white/25 text-cream/60 hover:text-cream hover:border-white/50'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                {f}
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── 360 Grid ── */}
+      <section className="bg-obsidian py-16 px-8 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {filtered.map((project, i) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Rotation360 project={project} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          {filtered.length === 0 && (
+            <div className="py-24 text-center font-body text-[13px] text-cream/30 tracking-widest uppercase">
+              No projects found.
+            </div>
+          )}
+
+          {/* Interaction hint */}
+          <motion.p
+            className="text-center font-body text-[10px] tracking-[0.25em] uppercase text-cream/25 mt-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            Hover a card · drag to rotate · see project details on the back
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="bg-[#0d0d0d] border-t border-white/5 py-24 px-8 text-center">
+        <div className="max-w-lg mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
+              Work with us
+            </span>
+            <h2 className="font-display font-light text-cream"
+              style={{ fontSize: 'clamp(32px, 3vw, 46px)' }}>
+              Your project, next.
+            </h2>
+            <motion.button
+              onClick={() => onNav('contact')}
+              className="mt-10 bg-walnut text-cream text-[11px] tracking-[0.25em] uppercase px-12 py-4 font-body"
+              whileHover={{ backgroundColor: '#a08060' }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.25 }}
+            >
+              Start the Conversation
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}
