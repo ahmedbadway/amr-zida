@@ -58,6 +58,15 @@ const ALL_PROJECTS: Project[] = [
     description: 'A single guest suite above a historic garden. Jewel-toned fabrics and antique stone contrast beautifully with the old city outside.',
     img: '/images/project6.jpg',
   },
+  {
+    id: 7,
+    title: 'Studio Atelier',
+    tag: 'Commercial',
+    year: '2022',
+    location: 'Cairo',
+    description: 'A working studio reimagined as a quiet retreat — raw concrete softened by woven textiles, reclaimed wood, and carefully considered light.',
+    img: '/images/home3.jpg',
+  },
 ]
 
 const FILTERS = ['All', 'Residential', 'Hospitality', 'Commercial'] as const
