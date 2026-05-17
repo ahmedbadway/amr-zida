@@ -1,0 +1,23 @@
+{
+  "name": "amr-zida",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggtxk9bkbf-glitch/amr-zida.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggtxk9bkbf-glitch/amr-zida/issues"
+  },
+  "homepage": "https://github.com/ggtxk9bkbf-glitch/amr-zida#readme",
+  "dependencies": {
+    "framer-motion": "^12.38.0"
+  }
+}
