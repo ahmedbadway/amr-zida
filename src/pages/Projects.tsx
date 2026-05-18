@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Rotation360 from '../components/Rotation360'
+import VideoCard, { type VideoItem } from '../components/VideoCard'
 import type { PageProps, Project } from '../types'
+
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
 const ALL_PROJECTS: Project[] = [
   {
@@ -9,7 +12,7 @@ const ALL_PROJECTS: Project[] = [
     title: 'Tagmo3 5',
     tag: 'Residential',
     year: '2025',
-    location: 'Lisbon',
+    location: 'Cairo',
     description: 'A considered family home where warm timber, handmade ceramics and abundant natural light create a sense of grounded calm.',
     img: '/images/project1.jpg',
   },
@@ -18,7 +21,7 @@ const ALL_PROJECTS: Project[] = [
     title: 'Masr El Gedid',
     tag: 'Hospitality',
     year: '2024',
-    location: 'Comporta',
+    location: 'Cairo',
     description: 'Boutique hospitality project balancing coastal lightness with rich material textures — raw linen, aged brass, and rammed earth.',
     img: '/images/project2.jpg',
   },
@@ -27,7 +30,7 @@ const ALL_PROJECTS: Project[] = [
     title: '6 of October',
     tag: 'Commercial',
     year: '2024',
-    location: 'Porto',
+    location: 'Cairo',
     description: 'Studio and showroom space for a fashion brand. A restrained palette — white plaster, blackened steel, pale oak — lets the work breathe.',
     img: '/images/project3.jpg',
   },
@@ -45,7 +48,7 @@ const ALL_PROJECTS: Project[] = [
     title: 'Coastal Retreat',
     tag: 'Residential',
     year: '2023',
-    location: 'Sintra',
+    location: 'Cairo',
     description: 'Clifftop house where every room frames the Atlantic. Palette drawn entirely from the landscape — salt, stone, sea grass.',
     img: '/images/project5.jpg',
   },
@@ -54,7 +57,7 @@ const ALL_PROJECTS: Project[] = [
     title: 'The Garden Suite',
     tag: 'Hospitality',
     year: '2022',
-    location: 'Lisbon',
+    location: 'Cairo',
     description: 'A single guest suite above a historic garden. Jewel-toned fabrics and antique stone contrast beautifully with the old city outside.',
     img: '/images/project6.jpg',
   },
@@ -69,6 +72,14 @@ const ALL_PROJECTS: Project[] = [
   },
 ]
 
+// Add video files to public/videos/ and list them here.
+// Example entry (uncomment and update filenames when you add videos):
+//
+// { id: 1, title: 'Project Walkthrough', tag: 'Residential', year: '2025',
+//   location: 'Cairo', description: '...', src: '/videos/walkthrough.mp4',
+//   poster: '/images/project1.jpg' },
+const ALL_VIDEOS: VideoItem[] = []
+
 const FILTERS = ['All', 'Residential', 'Hospitality', 'Commercial'] as const
 type Filter = typeof FILTERS[number]
 
@@ -78,6 +89,10 @@ export default function Projects({ onNav }: PageProps) {
   const filtered = active === 'All'
     ? ALL_PROJECTS
     : ALL_PROJECTS.filter(p => p.tag === active)
+
+  const filteredVideos = active === 'All'
+    ? ALL_VIDEOS
+    : ALL_VIDEOS.filter(v => v.tag === active)
 
   return (
     <div>
@@ -91,7 +106,7 @@ export default function Projects({ onNav }: PageProps) {
           className="relative z-10 max-w-6xl w-full mx-auto px-8 md:px-12 pb-12"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.75, ease: EASE }}
         >
           <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
             Our Work
@@ -101,7 +116,7 @@ export default function Projects({ onNav }: PageProps) {
             A selection of<br />recent work.
           </h1>
           <p className="font-body text-[14px] font-light text-cream/55 max-w-md mt-5 leading-relaxed mb-9">
-            Six projects shaped by a shared approach — warm materials, generous light, quiet order.
+            Seven projects shaped by a shared approach — warm materials, generous light, quiet order.
           </p>
 
           {/* Filters */}
@@ -125,7 +140,7 @@ export default function Projects({ onNav }: PageProps) {
         </motion.div>
       </section>
 
-      {/* ── 360 Grid ── */}
+      {/* ── Photo Grid ── */}
       <section className="bg-obsidian py-16 px-8 md:px-12">
         <div className="max-w-6xl mx-auto">
           <AnimatePresence mode="wait">
@@ -142,7 +157,7 @@ export default function Projects({ onNav }: PageProps) {
                   key={project.id}
                   initial={{ opacity: 0, y: 28 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
                 >
                   <Rotation360 project={project} />
                 </motion.div>
@@ -156,7 +171,6 @@ export default function Projects({ onNav }: PageProps) {
             </div>
           )}
 
-          {/* Interaction hint */}
           <motion.p
             className="text-center font-body text-[10px] tracking-[0.25em] uppercase text-cream/25 mt-12"
             initial={{ opacity: 0 }}
@@ -168,6 +182,57 @@ export default function Projects({ onNav }: PageProps) {
         </div>
       </section>
 
+      {/* ── Video Section ── */}
+      <section className="bg-[#0a0a0a] border-t border-white/5 py-20 px-8 md:px-12">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="mb-14"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: EASE }}
+          >
+            <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
+              Film
+            </span>
+            <h2 className="font-display font-light text-cream"
+              style={{ fontSize: 'clamp(34px, 3vw, 48px)' }}>
+              Projects in motion.
+            </h2>
+            <p className="font-body text-[14px] font-light text-cream/45 max-w-md mt-4 leading-relaxed">
+              Walkthroughs and process films from selected projects.
+            </p>
+          </motion.div>
+
+          {filteredVideos.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredVideos.map(video => (
+                <VideoCard key={video.id} video={video} />
+              ))}
+            </div>
+          ) : (
+            /* Placeholder shown when no videos are added yet */
+            <motion.div
+              className="border border-white/[0.06] py-20 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-5">
+                <span className="text-cream/20 text-lg">▶</span>
+              </div>
+              <p className="font-body text-[13px] text-cream/25 tracking-widest uppercase">
+                Coming soon
+              </p>
+              <p className="font-body text-[12px] text-cream/15 mt-2">
+                Add .mp4 files to <code className="text-walnut/50">public/videos/</code>
+              </p>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section className="bg-[#0d0d0d] border-t border-white/5 py-24 px-8 text-center">
         <div className="max-w-lg mx-auto">
@@ -175,7 +240,7 @@ export default function Projects({ onNav }: PageProps) {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: EASE }}
           >
             <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
               Work with us
