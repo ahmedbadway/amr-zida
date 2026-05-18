@@ -14,7 +14,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2025',
     location: 'Cairo',
     description: 'A considered family home where warm timber, handmade ceramics and abundant natural light create a sense of grounded calm.',
-    img: '/images/project1.jpg',
+    img: 'images/project1.jpg',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2024',
     location: 'Cairo',
     description: 'Boutique hospitality project balancing coastal lightness with rich material textures — raw linen, aged brass, and rammed earth.',
-    img: '/images/project2.jpg',
+    img: 'images/project2.jpg',
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2024',
     location: 'Cairo',
     description: 'Studio and showroom space for a fashion brand. A restrained palette — white plaster, blackened steel, pale oak — lets the work breathe.',
-    img: '/images/project3.jpg',
+    img: 'images/project3.jpg',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2023',
     location: 'Cairo',
     description: 'Private villa rethought around a central courtyard. Traditional proportions, contemporary restraint.',
-    img: '/images/project4.jpg',
+    img: 'images/project4.jpg',
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2023',
     location: 'Cairo',
     description: 'Clifftop house where every room frames the Atlantic. Palette drawn entirely from the landscape — salt, stone, sea grass.',
-    img: '/images/project5.jpg',
+    img: 'images/project5.jpg',
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2022',
     location: 'Cairo',
     description: 'A single guest suite above a historic garden. Jewel-toned fabrics and antique stone contrast beautifully with the old city outside.',
-    img: '/images/project6.jpg',
+    img: 'images/project6.jpg',
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const ALL_PROJECTS: Project[] = [
     year: '2022',
     location: 'Cairo',
     description: 'A working studio reimagined as a quiet retreat — raw concrete softened by woven textiles, reclaimed wood, and carefully considered light.',
-    img: '/images/home3.jpg',
+    img: 'images/home3.jpg',
   },
 ]
 
@@ -77,7 +77,7 @@ const ALL_PROJECTS: Project[] = [
 //
 // { id: 1, title: 'Project Walkthrough', tag: 'Residential', year: '2025',
 //   location: 'Cairo', description: '...', src: '/videos/walkthrough.mp4',
-//   poster: '/images/project1.jpg' },
+//   poster: 'images/project1.jpg' },
 const ALL_VIDEOS: VideoItem[] = []
 
 const FILTERS = ['All', 'Residential', 'Hospitality', 'Commercial'] as const
@@ -98,7 +98,7 @@ export default function Projects({ onNav }: PageProps) {
     <div>
       {/* ── Header ── */}
       <section className="relative h-screen overflow-hidden flex flex-col justify-end">
-        <img src="/images/project5.jpg" alt="Projects"
+        <img src="images/project5.jpg" alt="Projects"
           className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/40 to-black/10" />
 

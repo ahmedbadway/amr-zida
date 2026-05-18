@@ -21,9 +21,9 @@ const services = [
 ]
 
 const featured = [
-  { src: '/images/project2.jpg', title: 'Masr El Gedid', tag: 'Hospitality', loc: 'Cairo' },
-  { src: '/images/project3.jpg', title: '6 of October',  tag: 'Commercial',  loc: 'Cairo' },
-  { src: '/images/project4.jpg', title: 'Bel Air',       tag: 'Residential', loc: 'Cairo' },
+  { src: 'images/project2.jpg', title: 'Masr El Gedid', tag: 'Hospitality', loc: 'Cairo' },
+  { src: 'images/project3.jpg', title: '6 of October',  tag: 'Commercial',  loc: 'Cairo' },
+  { src: 'images/project4.jpg', title: 'Bel Air',       tag: 'Residential', loc: 'Cairo' },
 ]
 
 export default function Home({ onNav }: PageProps) {
@@ -31,7 +31,7 @@ export default function Home({ onNav }: PageProps) {
     <div>
       {/* Hero */}
       <section className="relative h-screen overflow-hidden flex items-end">
-        <img src="/images/home1.jpg" alt="Interior" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="images/home1.jpg" alt="Interior" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
         <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 pb-20">
           <motion.span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-5" {...fadeUp(0.1)}>
@@ -74,7 +74,7 @@ export default function Home({ onNav }: PageProps) {
 
       {/* Studio intro */}
       <section className="relative h-screen overflow-hidden flex items-center">
-        <img src="/images/project1.jpg" alt="Studio" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="images/project1.jpg" alt="Studio" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/5" />
         <div className="relative z-10 max-w-6xl w-full mx-auto px-8 md:px-12">
           <motion.div
@@ -169,7 +169,7 @@ export default function Home({ onNav }: PageProps) {
 
       {/* CTA */}
       <section className="relative h-screen overflow-hidden flex items-center justify-center">
-        <img src="/images/home2.jpg" alt="CTA" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="images/home2.jpg" alt="CTA" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/72" />
         <motion.div
           className="relative z-10 text-center px-8 max-w-2xl mx-auto"
