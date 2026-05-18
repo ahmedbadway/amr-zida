@@ -182,55 +182,87 @@ export default function Projects({ onNav }: PageProps) {
         </div>
       </section>
 
-      {/* ── Video Section ── */}
-      <section className="bg-[#0a0a0a] border-t border-white/5 py-20 px-8 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="mb-14"
+      {/* ── Video Background Section ── */}
+      <section className="relative h-screen overflow-hidden flex items-center justify-center border-t border-white/5">
+        <video
+          src="videos/hero-bg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="images/project2.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/40" />
+
+        <motion.div
+          className="relative z-10 text-center px-8 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.9, ease: EASE }}
+        >
+          <motion.span
+            className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-5"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
+          >
+            Film
+          </motion.span>
+
+          <motion.h2
+            className="font-display font-light text-cream leading-[1.1]"
+            style={{ fontSize: 'clamp(44px, 5vw, 84px)' }}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, ease: EASE }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
           >
-            <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
-              Film
-            </span>
-            <h2 className="font-display font-light text-cream"
-              style={{ fontSize: 'clamp(34px, 3vw, 48px)' }}>
-              Projects in motion.
-            </h2>
-            <p className="font-body text-[14px] font-light text-cream/45 max-w-md mt-4 leading-relaxed">
-              Walkthroughs and process films from selected projects.
-            </p>
-          </motion.div>
+            Projects in motion.
+          </motion.h2>
 
-          {filteredVideos.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.p
+            className="font-body text-[15px] font-light text-cream/65 leading-relaxed mt-6 max-w-md mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
+          >
+            Walkthroughs, atmospheres and process films from selected projects —
+            where light, material and proportion come together over time.
+          </motion.p>
+
+          {filteredVideos.length > 0 && (
+            <motion.div
+              className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
+            >
               {filteredVideos.map(video => (
                 <VideoCard key={video.id} video={video} />
               ))}
-            </div>
-          ) : (
-            /* Placeholder shown when no videos are added yet */
-            <motion.div
-              className="border border-white/[0.06] py-20 text-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mx-auto mb-5">
-                <span className="text-cream/20 text-lg">▶</span>
-              </div>
-              <p className="font-body text-[13px] text-cream/25 tracking-widest uppercase">
-                Coming soon
-              </p>
-              <p className="font-body text-[12px] text-cream/15 mt-2">
-                Add .mp4 files to <code className="text-walnut/50">public/videos/</code>
-              </p>
             </motion.div>
           )}
-        </div>
+        </motion.div>
+
+        {/* Bottom scroll hint */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <motion.div
+            className="w-px h-12 bg-cream/30 origin-top"
+            animate={{ scaleY: [0.3, 1, 0.3] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </motion.div>
       </section>
 
       {/* ── CTA ── */}
