@@ -5,9 +5,10 @@ import type { PageProps } from '../types'
 const stagger = {
   animate: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
 }
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 const fadeUp = {
   initial: { opacity: 0, y: 32 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 }
 const fadeIn = {
   initial: { opacity: 0 },

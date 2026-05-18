@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 const stagger = {
   animate: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
 }
+const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 const slideUp = {
   initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 }
 
 const INITIAL_FORM = { name: '', email: '', phone: '', service: 'Interior Design', message: '' }
