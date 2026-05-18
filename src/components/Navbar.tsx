@@ -7,17 +7,20 @@ interface NavbarProps {
   onNav: (p: Page) => void
 }
 
-function ZMark({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 75 75" width="32" height="32" className={className}
-      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      {/* Upper arrow — top stroke of Z, tip pointing right */}
-      <polygon points="0,4 67,4 75,20 67,36 0,36" />
-      {/* Lower chevron — bottom stroke of Z, tip pointing left */}
-      <polygon points="75,44 75,70 8,70 0,57 8,44" />
-    </svg>
-  )
-}
+// Logo assets (public/images/)
+const LOGO_MARK     = 'images/logo-mark.svg'
+const LOGO_WORDMARK = 'images/logo-wordmark.svg'
+
+const maskStyle = (url: string) => ({
+  WebkitMaskImage:    `url(${url})`,
+  maskImage:          `url(${url})`,
+  WebkitMaskRepeat:   'no-repeat',
+  maskRepeat:         'no-repeat',
+  WebkitMaskSize:     'contain',
+  maskSize:           'contain',
+  WebkitMaskPosition: 'left center',
+  maskPosition:       'left center',
+})
 
 const links: { id: Page; label: string }[] = [
   { id: 'home',     label: 'Home'     },
@@ -35,8 +38,6 @@ export default function Navbar({ page, onNav }: NavbarProps) {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  const onDark = !scrolled
-
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50"
@@ -50,11 +51,17 @@ export default function Navbar({ page, onNav }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-8 md:px-12 h-[72px] flex items-center justify-between">
 
         {/* Logo */}
-        <button onClick={() => onNav('home')} className="flex items-center gap-3 group">
-          <ZMark className="text-cream transition-colors duration-300 group-hover:text-walnut" />
-          <span className="font-logo text-[14px] font-semibold tracking-[0.22em] uppercase text-cream transition-colors duration-300 group-hover:text-walnut">
-            AMR ZIADA
-          </span>
+        <button onClick={() => onNav('home')} className="flex items-center gap-3 group" aria-label="AMR ZIADA — Home">
+          <span
+            className="block h-8 w-8 bg-cream group-hover:bg-walnut transition-colors duration-300"
+            style={maskStyle(LOGO_MARK)}
+            aria-hidden="true"
+          />
+          <span
+            className="block h-[14px] w-[120px] bg-cream group-hover:bg-walnut transition-colors duration-300"
+            style={maskStyle(LOGO_WORDMARK)}
+            aria-hidden="true"
+          />
         </button>
 
         {/* Nav links */}
