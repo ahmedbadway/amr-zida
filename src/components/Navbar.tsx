@@ -11,8 +11,10 @@ function ZMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 75 75" width="32" height="32" className={className}
       fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,22 18,4 68,4 68,40 18,40" />
-      <polygon points="6,47 70,47 46,72" />
+      {/* Upper arrow — top stroke of Z, tip pointing right */}
+      <polygon points="0,4 67,4 75,20 67,36 0,36" />
+      {/* Lower chevron — bottom stroke of Z, tip pointing left */}
+      <polygon points="75,44 75,70 8,70 0,57 8,44" />
     </svg>
   )
 }
