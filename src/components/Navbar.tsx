@@ -36,17 +36,23 @@ export default function Navbar({ page, onNav }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-8 md:px-12 h-[72px] flex items-center justify-between">
 
         {/* Logo */}
-        <button onClick={() => onNav('home')} className="flex items-center gap-2 group" aria-label="AMR ZIADA — Home">
+        <button
+          onClick={() => onNav('home')}
+          className="flex items-center gap-3 group"
+          aria-label="AMR ZIADA — Home"
+        >
+          {/* Mark: white Z on black — screen blend makes the black square invisible */}
           <img
             src="images/logo-mark.jpg"
-            alt="AMR ZIADA mark"
-            className="h-8 w-auto object-contain transition-opacity duration-300 group-hover:opacity-75"
+            alt=""
+            aria-hidden="true"
+            className="h-9 w-auto object-contain shrink-0 transition-opacity duration-300 group-hover:opacity-65"
+            style={{ mixBlendMode: 'screen' }}
           />
-          <img
-            src="images/logo-wordmark.jpg"
-            alt="AMR ZIADA"
-            className="h-8 w-auto object-contain transition-opacity duration-300 group-hover:opacity-75"
-          />
+          {/* Wordmark text — hidden on mobile, shown sm+ */}
+          <span className="hidden sm:block font-logo text-[13px] font-semibold tracking-[0.28em] uppercase text-cream transition-colors duration-300 group-hover:text-walnut leading-none">
+            AMR ZIADA
+          </span>
         </button>
 
         {/* Nav links */}
