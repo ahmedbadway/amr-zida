@@ -7,21 +7,6 @@ interface NavbarProps {
   onNav: (p: Page) => void
 }
 
-// Logo assets (public/images/)
-const LOGO_MARK     = 'images/logo-mark.svg'
-const LOGO_WORDMARK = 'images/logo-wordmark.svg'
-
-const maskStyle = (url: string) => ({
-  WebkitMaskImage:    `url(${url})`,
-  maskImage:          `url(${url})`,
-  WebkitMaskRepeat:   'no-repeat',
-  maskRepeat:         'no-repeat',
-  WebkitMaskSize:     'contain',
-  maskSize:           'contain',
-  WebkitMaskPosition: 'left center',
-  maskPosition:       'left center',
-})
-
 const links: { id: Page; label: string }[] = [
   { id: 'home',     label: 'Home'     },
   { id: 'projects', label: 'Projects' },
@@ -51,16 +36,16 @@ export default function Navbar({ page, onNav }: NavbarProps) {
       <div className="max-w-6xl mx-auto px-8 md:px-12 h-[72px] flex items-center justify-between">
 
         {/* Logo */}
-        <button onClick={() => onNav('home')} className="flex items-center gap-3 group" aria-label="AMR ZIADA — Home">
-          <span
-            className="block h-8 w-8 bg-cream group-hover:bg-walnut transition-colors duration-300"
-            style={maskStyle(LOGO_MARK)}
-            aria-hidden="true"
+        <button onClick={() => onNav('home')} className="flex items-center gap-2 group" aria-label="AMR ZIADA — Home">
+          <img
+            src="images/logo-mark.jpg"
+            alt="AMR ZIADA mark"
+            className="h-8 w-auto object-contain transition-opacity duration-300 group-hover:opacity-75"
           />
-          <span
-            className="block h-[14px] w-[120px] bg-cream group-hover:bg-walnut transition-colors duration-300"
-            style={maskStyle(LOGO_WORDMARK)}
-            aria-hidden="true"
+          <img
+            src="images/logo-wordmark.jpg"
+            alt="AMR ZIADA"
+            className="h-8 w-auto object-contain transition-opacity duration-300 group-hover:opacity-75"
           />
         </button>
 
