@@ -43,7 +43,7 @@ export default function Navbar({ page, onNav }: NavbarProps) {
         >
           {/* Mark: white Z on black — screen blend makes the black square invisible */}
           <img
-            src="images/logo-mark.jpg"
+            src="images/logo-mark.svg.jpg"
             alt=""
             aria-hidden="true"
             className="h-9 w-auto object-contain shrink-0 transition-opacity duration-300 group-hover:opacity-65"
