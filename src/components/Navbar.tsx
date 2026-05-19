@@ -27,7 +27,7 @@ export default function Navbar({ page, onNav }: NavbarProps) {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50"
       animate={{
-        backgroundColor: scrolled ? 'rgba(8,8,8,0.92)' : 'rgba(8,8,8,0)',
+        backgroundColor: scrolled ? 'rgba(15,16,17,0.92)' : 'rgba(15,16,17,0)',
         borderBottomColor: scrolled ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0)',
       }}
       transition={{ duration: 0.4 }}

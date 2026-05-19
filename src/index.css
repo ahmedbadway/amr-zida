@@ -1,34 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream:    #F5F1ED;
-  --color-walnut:   #8B7355;
-  --color-sand:     #D4C5B9;
-  --color-charcoal: #2C2C2C;
-  --color-obsidian: #080808;
-  --color-surface:  #111111;
-  --color-card:     #161616;
+  /* Brand palette — Amr Ziada Interiors Style Guide */
+  --color-cream:    #FAFCFC;
+  --color-walnut:   #DA4F37;
+  --color-sand:     #C9C9C9;
+  --color-charcoal: #373A3B;
+  --color-obsidian: #0F1011;
+  --color-surface:  #1A1B1D;
+  --color-card:     #232527;
+  --color-mist:     #FAFCFC;
+  --color-terra:    #DA4F37;
+  --color-ash:      #C9C9C9;
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body:    "DM Sans", system-ui, sans-serif;
-  --font-sans:    "DM Sans", system-ui, sans-serif;
-  --font-logo:    "Josefin Sans", "DM Sans", sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-sans:    "Inter", system-ui, sans-serif;
+  --font-logo:    "Inter", system-ui, sans-serif;
 }
 
 @layer base {
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    background: #080808;
-    color: #F5F1ED;
+    background: #0F1011;
+    color: #FAFCFC;
+    font-family: "Inter", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  ::selection { background: rgba(139,115,85,0.35); color: #F5F1ED; }
+  ::selection { background: rgba(218,79,55,0.30); color: #FAFCFC; }
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #080808; }
-  ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
-  ::-webkit-scrollbar-thumb:hover { background: #8B7355; }
+  ::-webkit-scrollbar-track { background: #0F1011; }
+  ::-webkit-scrollbar-thumb { background: #373A3B; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #DA4F37; }
 }
 
 @layer utilities {

@@ -202,7 +202,7 @@ export default function Projects({ onNav }: PageProps) {
             <motion.button
               onClick={() => onNav('contact')}
               className="mt-10 bg-walnut text-cream text-[11px] tracking-[0.25em] uppercase px-12 py-4 font-body"
-              whileHover={{ backgroundColor: '#a08060' }}
+              whileHover={{ backgroundColor: '#B33E29' }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.25 }}
             >

@@ -69,7 +69,7 @@ export default function Home({ onNav }: PageProps) {
       </section>
 
       {/* Stats */}
-      <section className="bg-[#0f0f0f] border-y border-white/5">
+      <section className="bg-charcoal border-y border-white/5">
         <div className="max-w-6xl mx-auto px-8 md:px-12 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
             <motion.div key={s.l} {...fadeUp(i * 0.08)}>

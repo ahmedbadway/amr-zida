@@ -162,7 +162,7 @@ export default function Contact() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="font-body text-[11px] tracking-[0.25em] uppercase px-10 py-4 bg-walnut text-cream disabled:opacity-50 transition-opacity"
-                    whileHover={{ backgroundColor: '#a08060' }}
+                    whileHover={{ backgroundColor: '#B33E29' }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ duration: 0.25 }}
                   >
@@ -235,7 +235,7 @@ function TextInput({ id, type, value, onChange, hasError }: {
       onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
       className="w-full bg-transparent pb-2 pt-2 font-body text-[14px] text-cream outline-none transition-colors duration-200"
       style={{
-        borderBottom: `1px solid ${hasError ? '#b91c1c' : focused ? '#8B7355' : 'rgba(255,255,255,0.15)'}`,
+        borderBottom: `1px solid ${hasError ? '#b91c1c' : focused ? '#DA4F37' : 'rgba(255,255,255,0.15)'}`,
         borderTop: 'none', borderLeft: 'none', borderRight: 'none',
       }}
     />

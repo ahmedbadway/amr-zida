@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
@@ -20,7 +21,7 @@ export default function App() {
   const PageComponent = pageMap[page]
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808', color: '#F5F1ED' }}>
+    <div style={{ minHeight: '100vh', background: '#0F1011', color: '#FAFCFC' }}>
       <Navbar page={page} onNav={navigate} />
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
@@ -33,6 +34,7 @@ export default function App() {
           <PageComponent onNav={navigate} />
         </motion.div>
       </AnimatePresence>
+      <Footer onNav={navigate} />
     </div>
   )
 }
