@@ -54,14 +54,16 @@ export default function Contact() {
   return (
     <div>
       {/* ── Header ── */}
-      <section
-        className="relative h-screen flex items-end"
-        style={{
-          backgroundImage: 'url(/images/project6.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      <section className="relative h-screen overflow-hidden flex items-end">
+        <video
+          src="videos/Contact-BG.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="images/Home-2.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/38 to-black/08" />
         <motion.div
           className="relative z-10 max-w-6xl w-full mx-auto px-8 md:px-12 pb-18"
