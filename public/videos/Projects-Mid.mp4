@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
-  <rect width="1600" height="900" fill="#161618"/>
-  <rect x="60" y="60" width="1480" height="780" fill="none" stroke="#3a3832" stroke-width="2"/>
-  <text x="800" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="86" font-weight="300" fill="#f5f1ed">Projects-Mid.mp4</text>
-  <text x="800" y="490" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" letter-spacing="6" fill="#8b7355">VIDEO PLACEHOLDER &#8212; REPLACE WITH MP4</text>
-</svg>

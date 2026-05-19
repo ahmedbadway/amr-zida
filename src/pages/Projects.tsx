@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Rotation360 from '../components/Rotation360'
-import VideoCard, { type VideoItem } from '../components/VideoCard'
 import type { PageProps, Project } from '../types'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
@@ -72,14 +71,6 @@ const ALL_PROJECTS: Project[] = [
   },
 ]
 
-// Add video files to public/videos/ and list them here.
-// Example entry (uncomment and update filenames when you add videos):
-//
-// { id: 1, title: 'Project Walkthrough', tag: 'Residential', year: '2025',
-//   location: 'Cairo', description: '...', src: '/videos/walkthrough.mp4',
-//   poster: 'images/Project-1.jpg' },
-const ALL_VIDEOS: VideoItem[] = []
-
 const FILTERS = ['All', 'Residential', 'Hospitality', 'Commercial'] as const
 type Filter = typeof FILTERS[number]
 
@@ -89,10 +80,6 @@ export default function Projects({ onNav }: PageProps) {
   const filtered = active === 'All'
     ? ALL_PROJECTS
     : ALL_PROJECTS.filter(p => p.tag === active)
-
-  const filteredVideos = active === 'All'
-    ? ALL_VIDEOS
-    : ALL_VIDEOS.filter(v => v.tag === active)
 
   return (
     <div>
@@ -187,89 +174,6 @@ export default function Projects({ onNav }: PageProps) {
             Hover a card · drag to rotate · see project details on the back
           </motion.p>
         </div>
-      </section>
-
-      {/* ── Video Background Section ── */}
-      <section className="relative h-screen overflow-hidden flex items-center justify-center border-t border-white/5">
-        <video
-          src="videos/Projects-Mid.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="images/Project-2.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/40" />
-
-        <motion.div
-          className="relative z-10 text-center px-8 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.9, ease: EASE }}
-        >
-          <motion.span
-            className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-5"
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
-          >
-            Film
-          </motion.span>
-
-          <motion.h2
-            className="font-display font-light text-cream leading-[1.1]"
-            style={{ fontSize: 'clamp(44px, 5vw, 84px)' }}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
-          >
-            Projects in motion.
-          </motion.h2>
-
-          <motion.p
-            className="font-body text-[15px] font-light text-cream/65 leading-relaxed mt-6 max-w-md mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.45, ease: EASE }}
-          >
-            Walkthroughs, atmospheres and process films from selected projects —
-            where light, material and proportion come together over time.
-          </motion.p>
-
-          {filteredVideos.length > 0 && (
-            <motion.div
-              className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.55, ease: EASE }}
-            >
-              {filteredVideos.map(video => (
-                <VideoCard key={video.id} video={video} />
-              ))}
-            </motion.div>
-          )}
-        </motion.div>
-
-        {/* Bottom scroll hint */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <motion.div
-            className="w-px h-12 bg-cream/30 origin-top"
-            animate={{ scaleY: [0.3, 1, 0.3] }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
       </section>
 
       {/* ── CTA ── */}
