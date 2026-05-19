@@ -77,7 +77,7 @@ const ALL_PROJECTS: Project[] = [
 //
 // { id: 1, title: 'Project Walkthrough', tag: 'Residential', year: '2025',
 //   location: 'Cairo', description: '...', src: '/videos/walkthrough.mp4',
-//   poster: 'images/project1.jpg' },
+//   poster: 'images/Project-1.jpg' },
 const ALL_VIDEOS: VideoItem[] = []
 
 const FILTERS = ['All', 'Residential', 'Hospitality', 'Commercial'] as const
