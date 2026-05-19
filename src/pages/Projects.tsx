@@ -98,8 +98,15 @@ export default function Projects({ onNav }: PageProps) {
     <div>
       {/* ── Header ── */}
       <section className="relative h-screen overflow-hidden flex flex-col justify-end">
-        <img src="images/project5.jpg" alt="Projects"
-          className="absolute inset-0 w-full h-full object-cover" />
+        <video
+          src="videos/Projects-1.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="images/project5.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/40 to-black/10" />
 
         <motion.div
@@ -185,7 +192,7 @@ export default function Projects({ onNav }: PageProps) {
       {/* ── Video Background Section ── */}
       <section className="relative h-screen overflow-hidden flex items-center justify-center border-t border-white/5">
         <video
-          src="videos/hero-bg.mp4"
+          src="videos/Projects-2.mp4"
           autoPlay
           loop
           muted
@@ -266,8 +273,15 @@ export default function Projects({ onNav }: PageProps) {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#0d0d0d] border-t border-white/5 py-24 px-8 text-center">
-        <div className="max-w-lg mx-auto">
+      <section className="relative overflow-hidden border-t border-white/5 py-36 px-8 text-center">
+        <img
+          src="images/Projects-Finale.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative z-10 max-w-lg mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
