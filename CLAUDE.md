@@ -51,53 +51,25 @@
 
 ---
 
-## 🎨 Design Skills — Load Before Starting
-Apply these skills as relevant to the project:
+## 🎨 Design Skills
 
-### Core Design Skills (Always Available)
-1. **Emil Kowalski** (`skills/emil-design-eng.md`)
-   - Advanced animation choreography, micro-interactions, spring physics
-   - Use for: Any project with motion, interactive components, GSAP sequencing
-   
-2. **GPT-Taste** (`skills/gpt-taste.md`)
-   - Awwwards-level premium design, creative randomization, typography variance
-   - Use for: Creative, high-end, editorial projects
-   
-3. **Taste Skill v2** (`skills/taste-skill-v2.md`)
-   - Landing pages, portfolios, redesigns without template feel
-   - Inline image typography, asymmetric layouts, high variance
-   - Default for most projects
-   
-4. **Minimalist UI** (`skills/minimalist-ui.md`)
-   - Clean editorial style, warm monochrome, Notion/Linear aesthetic
-   - Use for: Dashboard-style, clean professional projects
-   
-5. **Industrial Brutalist UI** (`skills/industrial-brutalist-ui.md`)
-   - Swiss typography, tactical telemetry, CRT terminal aesthetics
-   - Use for: Dark dashboards, data-heavy interfaces, portfolio edge cases
+### Core Skills — Read at Session Start (Always)
+These are the foundation. Read all three before any design work:
+- `skills/Emil-Kowalski's-Motion-System/SKILL.md`
+  - Animation choreography, micro-interactions, spring physics
+- `skills/taste-skill/taste-skill/SKILL.md`
+  - Default design language — landing pages, portfolios, anti-template
+- `skills/taste-skill/output-skill/SKILL.md`
+  - Complete code generation, no truncation, no placeholders
 
-### Enhancement & Refinement Skills
-6. **Redesign Existing Projects** (`skills/redesign-existing-projects.md`)
-   - Audit + upgrade existing codebases, remove AI slop patterns
-   - Use for: Client redesigns, legacy code modernization
-   
-7. **High-End Visual Design** (`skills/high-end-visual-design.md`)
-   - Agency-level ($150k+), double-bezel architecture, spatial rhythm
-   - Use for: Premium projects, brand/identity work
-   
-8. **Stitch Design Taste** (`skills/stitch-design-taste.md`)
-   - Semantic design systems, DESIGN.md generation, Google Stitch integration
-   - Use for: Generating structured design systems
-
-### Code Quality & Output Skills
-9. **Full-Output Enforcement** (`skills/full-output-enforcement.md`)
-   - Complete code generation, no truncation, no placeholder patterns
-   - Automatic — applies to all artifacts
-   
-10. **Impeccable** (`skills/impeccable.md`)
-    - UX/UI design review, critique, polish, animation, typography, layout
-    - Commands: `craft`, `shape`, `audit`, `polish`, `bolder`, `quieter`, etc.
-    - Use for: Design iteration, final quality pass, production-ready polish
+### Plugin Skills — Read on Demand (by project type)
+Read only the one matching the current task:
+- Final polish / audit → `skills/impeccable/SKILL.md` (read it, then audit the project)
+- Redesign existing project → `skills/taste-skill/redesign-skill/SKILL.md`
+- Premium creative / Awwwards → `skills/taste-skill/gpt-tasteskill/SKILL.md`
+- Dashboard / SaaS / clean → `skills/taste-skill/minimalist-skill/SKILL.md`
+- Dark / data-heavy / brutalist → `skills/taste-skill/brutalist-skill/SKILL.md`
+- Soft premium UI → `skills/taste-skill/soft-skill/SKILL.md`
 
 ---
 
