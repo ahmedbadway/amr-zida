@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { asset } from '../utils/asset'
 import type { PageProps } from '../types'
 
 const fadeUp = (delay = 0) => ({
@@ -32,12 +33,13 @@ export default function Home({ onNav }: PageProps) {
       {/* Hero 1 — video */}
       <section className="relative h-screen overflow-hidden flex items-end">
         <video
-          src="videos/Home-1.mp4"
+          src={asset('videos/Home-1.mp4')}
           autoPlay
           loop
           muted
           playsInline
-          poster="images/Home-2.jpg"
+          preload="metadata"
+          poster={asset('images/Home-2.jpg')}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
@@ -62,7 +64,7 @@ export default function Home({ onNav }: PageProps) {
             >View Our Work</button>
             <button
               onClick={() => onNav('contact')}
-              className="border border-cream/35 text-cream text-[11px] tracking-[0.25em] uppercase px-10 py-4 font-body hover:bg-white/08 transition-colors duration-200"
+              className="border border-cream/35 text-cream text-[11px] tracking-[0.25em] uppercase px-10 py-4 font-body hover:bg-white/10 transition-colors duration-200"
             >Start a Project</button>
           </motion.div>
         </div>
@@ -74,7 +76,7 @@ export default function Home({ onNav }: PageProps) {
           {stats.map((s, i) => (
             <motion.div key={s.l} {...fadeUp(i * 0.08)}>
               <div className="font-display text-[52px] font-light text-cream leading-none">{s.n}</div>
-              <div className="font-body text-[10px] tracking-[0.22em] uppercase text-cream/40 mt-2">{s.l}</div>
+              <div className="font-body text-[10px] tracking-[0.22em] uppercase text-cream/55 mt-2">{s.l}</div>
             </motion.div>
           ))}
         </div>
@@ -82,7 +84,7 @@ export default function Home({ onNav }: PageProps) {
 
       {/* Hero 2 — image */}
       <section className="relative h-screen overflow-hidden flex items-center">
-        <img src="images/Home-2.jpg" alt="Studio" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={asset('images/Home-2.jpg')} alt="Studio interior by Amr Ziada" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/5" />
         <div className="relative z-10 max-w-6xl w-full mx-auto px-8 md:px-12">
           <motion.div
@@ -92,7 +94,6 @@ export default function Home({ onNav }: PageProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           >
-            <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-5">About the Studio</span>
             <h2 className="font-display font-light text-cream leading-[1.1]" style={{ fontSize: 'clamp(36px, 3.5vw, 56px)' }}>
               Spaces that feel quietly inevitable.
             </h2>
@@ -101,14 +102,14 @@ export default function Home({ onNav }: PageProps) {
             </p>
             <button
               onClick={() => onNav('contact')}
-              className="mt-9 border border-cream/35 text-cream text-[11px] tracking-[0.25em] uppercase px-9 py-3.5 font-body hover:bg-white/8 transition-colors duration-200"
+              className="mt-9 border border-cream/35 text-cream text-[11px] tracking-[0.25em] uppercase px-9 py-3.5 font-body hover:bg-white/10 transition-colors duration-200"
             >Our Philosophy</button>
           </motion.div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="bg-[#0d0d0d]">
+      <section className="bg-obsidian">
         <div className="max-w-6xl mx-auto px-8 md:px-12 py-24">
           <div className="flex items-end justify-between mb-14">
             <div>
@@ -142,7 +143,6 @@ export default function Home({ onNav }: PageProps) {
         <div className="max-w-6xl mx-auto px-8 md:px-12 py-24">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">Selected Work</span>
               <h2 className="font-display font-light text-cream" style={{ fontSize: 'clamp(34px, 3vw, 48px)' }}>Recent projects.</h2>
             </div>
             <button
@@ -162,7 +162,7 @@ export default function Home({ onNav }: PageProps) {
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
                 onClick={() => onNav('projects')}
               >
-                <img src={p.src} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={asset(p.src)} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <span className="text-walnut text-[10px] tracking-[0.24em] uppercase font-body block mb-2">{p.tag}</span>
@@ -178,12 +178,13 @@ export default function Home({ onNav }: PageProps) {
       {/* Hero 3 — CTA video */}
       <section className="relative h-screen overflow-hidden flex items-center justify-center">
         <video
-          src="videos/Home-3.mp4"
+          src={asset('videos/Home-3.mp4')}
           autoPlay
           loop
           muted
           playsInline
-          poster="images/Home-2.jpg"
+          preload="metadata"
+          poster={asset('images/Home-2.jpg')}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/72" />
@@ -194,7 +195,6 @@ export default function Home({ onNav }: PageProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
         >
-          <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-5">Let's Begin</span>
           <h2 className="font-display font-light text-cream leading-[1.1]" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>
             Imagine the space.<br />We'll build the rest.
           </h2>
@@ -203,7 +203,7 @@ export default function Home({ onNav }: PageProps) {
           </p>
           <button
             onClick={() => onNav('contact')}
-            className="mt-10 border border-cream/35 text-cream text-[11px] tracking-[0.25em] uppercase px-12 py-4 font-body hover:bg-white/8 transition-colors duration-200"
+            className="mt-10 border border-cream/35 text-cream text-[11px] tracking-[0.25em] uppercase px-12 py-4 font-body hover:bg-white/10 transition-colors duration-200"
           >Start the Conversation</button>
         </motion.div>
       </section>

@@ -4,24 +4,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand palette (Amr Ziada Interiors Style Guide)
-        cream:    '#FAFCFC',  // primary light  (#FAFCFC)
-        walnut:   '#DA4F37',  // accent terra   (#DA4F37) — brand red-orange
-        sand:     '#C9C9C9',  // secondary ash  (#C9C9C9)
-        charcoal: '#373A3B',  // primary dark   (#373A3B)
-        obsidian: '#0F1011',  // near-black surface for video backgrounds
-        surface:  '#1A1B1D',
-        card:     '#232527',
-        // Explicit brand aliases for new code
-        mist:     '#FAFCFC',
-        terra:    '#DA4F37',
-        ash:      '#C9C9C9',
+        // Brand palette (Amr Ziada Interiors) — OKLCH
+        cream:      'oklch(0.992 0.002 197)',
+        walnut:     'oklch(0.635 0.162 33)',  // accent terra — brand red-orange
+        'walnut-dark': 'oklch(0.535 0.158 33)',
+        sand:       'oklch(0.835 0 0)',
+        charcoal:   'oklch(0.330 0.004 230)',
+        obsidian:   'oklch(0.155 0.003 250)',
+        surface:    'oklch(0.215 0.003 250)',
+        card:       'oklch(0.255 0.003 250)',
+        danger:     'oklch(0.515 0.205 27)',
+        mist:       'oklch(0.992 0.002 197)',
+        terra:      'oklch(0.635 0.162 33)',
+        ash:        'oklch(0.835 0 0)',
       },
       fontFamily: {
-        display: ['Inter', 'system-ui', 'sans-serif'],
-        body:    ['Inter', 'system-ui', 'sans-serif'],
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        logo:    ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Nunito', 'Cairo', 'system-ui', 'sans-serif'],
+        body:    ['Nunito', 'Cairo', 'system-ui', 'sans-serif'],
+        sans:    ['Nunito', 'Cairo', 'system-ui', 'sans-serif'],
+        logo:    ['Nunito', 'Cairo', 'system-ui', 'sans-serif'],
       },
     },
   },
