@@ -21,7 +21,7 @@ export default function App() {
   const PageComponent = pageMap[page]
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0F1011', color: '#FAFCFC' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--color-obsidian)', color: 'var(--color-cream)' }}>
       <Navbar page={page} onNav={navigate} />
       <AnimatePresence mode="wait" initial={false}>
         <motion.div

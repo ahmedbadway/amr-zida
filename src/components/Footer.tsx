@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import LogoMark from './LogoMark'
 import type { Page } from '../types'
 
 type Props = { onNav: (p: Page) => void }
@@ -19,7 +20,7 @@ const CONTACT = [
 
 export default function Footer({ onNav }: Props) {
   return (
-    <footer className="bg-charcoal border-t border-white/06" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+    <footer className="bg-charcoal border-t border-white/6">
       {/* Accent rule */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-walnut/70 to-transparent" />
 
@@ -35,12 +36,7 @@ export default function Footer({ onNav }: Props) {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center gap-3 mb-7">
-              <img
-                src="images/logo-mark.svg.jpg"
-                alt=""
-                className="h-8 w-8 object-contain"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
+              <LogoMark className="h-8 w-8 text-cream" />
               <div className="leading-tight">
                 <div className="font-display text-[15px] font-semibold tracking-[0.22em] uppercase text-cream">
                   Amr Ziada
@@ -79,7 +75,7 @@ export default function Footer({ onNav }: Props) {
             <ul className="space-y-4">
               {CONTACT.map(c => (
                 <li key={c.label}>
-                  <div className="font-body text-[9px] tracking-[0.28em] uppercase text-cream/35 mb-1">
+                  <div className="font-body text-[10px] tracking-[0.28em] uppercase text-cream/55 mb-1">
                     {c.label}
                   </div>
                   <div className="font-body text-[13px] font-light text-cream/80">
@@ -136,10 +132,9 @@ export default function Footer({ onNav }: Props) {
 
         {/* ── Bottom bar ── */}
         <div
-          className="mt-16 pt-8 border-t border-white/06 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
-          style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+          className="mt-16 pt-8 border-t border-white/6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
         >
-          <div className="font-body text-[11px] tracking-[0.18em] uppercase text-cream/35">
+          <div className="font-body text-[11px] tracking-[0.18em] uppercase text-cream/50">
             © {new Date().getFullYear()} Amr Ziada Interiors. All rights reserved.
           </div>
           <div className="flex items-center gap-3 font-body text-[10px] tracking-[0.28em] uppercase text-cream/35">

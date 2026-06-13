@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Rotation360 from '../components/Rotation360'
+import { asset } from '../utils/asset'
 import type { PageProps, Project } from '../types'
 
 const EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
@@ -86,12 +87,13 @@ export default function Projects({ onNav }: PageProps) {
       {/* ── Header ── */}
       <section className="relative h-screen overflow-hidden flex flex-col justify-end">
         <video
-          src="videos/Projects-Hero.mp4"
+          src={asset('videos/Projects-Hero.mp4')}
           autoPlay
           loop
           muted
           playsInline
-          poster="images/Project-5.jpg"
+          preload="metadata"
+          poster={asset('images/Project-5.jpg')}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/40 to-black/10" />
@@ -166,7 +168,7 @@ export default function Projects({ onNav }: PageProps) {
           )}
 
           <motion.p
-            className="text-center font-body text-[10px] tracking-[0.25em] uppercase text-cream/25 mt-12"
+            className="text-center font-body text-[10px] tracking-[0.25em] uppercase text-cream/45 mt-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -179,7 +181,7 @@ export default function Projects({ onNav }: PageProps) {
       {/* ── CTA ── */}
       <section className="relative overflow-hidden border-t border-white/5 py-36 px-8 text-center">
         <img
-          src="images/Projects-End.jpg"
+          src={asset('images/Projects-End.jpg')}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -192,19 +194,14 @@ export default function Projects({ onNav }: PageProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <span className="text-walnut text-[10px] tracking-[0.32em] uppercase font-body font-bold block mb-4">
-              Work with us
-            </span>
             <h2 className="font-display font-light text-cream"
               style={{ fontSize: 'clamp(32px, 3vw, 46px)' }}>
               Your project, next.
             </h2>
             <motion.button
               onClick={() => onNav('contact')}
-              className="mt-10 bg-walnut text-cream text-[11px] tracking-[0.25em] uppercase px-12 py-4 font-body"
-              whileHover={{ backgroundColor: '#B33E29' }}
+              className="mt-10 bg-walnut hover:bg-walnut-dark text-cream text-[11px] tracking-[0.25em] uppercase px-12 py-4 font-body transition-colors duration-250"
               whileTap={{ scale: 0.97 }}
-              transition={{ duration: 0.25 }}
             >
               Start the Conversation
             </motion.button>

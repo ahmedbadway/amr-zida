@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { asset } from '../utils/asset'
 
 const stagger = {
   animate: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
@@ -56,15 +57,16 @@ export default function Contact() {
       {/* ── Header ── */}
       <section className="relative h-screen overflow-hidden flex items-end">
         <video
-          src="videos/Contact-BG.mp4"
+          src={asset('videos/Contact-BG.mp4')}
           autoPlay
           loop
           muted
           playsInline
-          poster="images/Home-2.jpg"
+          preload="metadata"
+          poster={asset('images/Home-2.jpg')}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/38 to-black/08" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/38 to-black/5" />
         <motion.div
           className="relative z-10 max-w-6xl w-full mx-auto px-8 md:px-12 pb-18"
           style={{ paddingBottom: '4.5rem' }}
@@ -101,7 +103,9 @@ export default function Contact() {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="w-12 h-12 rounded-full border border-walnut/40 flex items-center justify-center mb-2">
-                  <span className="text-walnut text-lg">✓</span>
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-walnut" fill="none" aria-hidden="true">
+                    <path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
                 <h3 className="font-display font-light text-cream text-[36px]">
                   Thank you.
@@ -118,8 +122,7 @@ export default function Contact() {
                 variants={stagger}
                 initial="initial"
                 animate="animate"
-                className="border border-white/06 bg-white/[0.02] p-10 md:p-14"
-                style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+                className="border border-white/6 bg-white/[0.02] p-10 md:p-14"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <FormField label="Name" id="name" error={errors.name}>
@@ -151,7 +154,7 @@ export default function Contact() {
                     id="message" rows={5} value={form.message} onChange={update('message')}
                     className="w-full bg-transparent border-b pb-2 pt-2 font-body text-[14px] text-cream outline-none resize-none leading-relaxed transition-colors duration-200"
                     style={{
-                      borderColor: errors.message ? '#b91c1c' : 'rgba(255,255,255,0.15)',
+                      borderColor: errors.message ? 'var(--color-danger)' : 'rgba(255,255,255,0.15)',
                       borderTop: 'none', borderLeft: 'none', borderRight: 'none',
                     }}
                   />
@@ -161,10 +164,8 @@ export default function Contact() {
                   <motion.button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="font-body text-[11px] tracking-[0.25em] uppercase px-10 py-4 bg-walnut text-cream disabled:opacity-50 transition-opacity"
-                    whileHover={{ backgroundColor: '#B33E29' }}
+                    className="font-body text-[11px] tracking-[0.25em] uppercase px-10 py-4 bg-walnut hover:bg-walnut-dark text-cream disabled:opacity-50 disabled:hover:bg-walnut transition-colors duration-250"
                     whileTap={{ scale: 0.97 }}
-                    transition={{ duration: 0.25 }}
                   >
                     {status === 'sending' ? 'Sending…' : 'Send Enquiry'}
                   </motion.button>
@@ -181,7 +182,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             {info.map((block, i) => (
-              <div key={block.label} className={i > 0 ? 'mt-8 pt-8 border-t border-white/06' : ''} style={{ borderColor: i > 0 ? 'rgba(255,255,255,0.06)' : undefined }}>
+              <div key={block.label} className={i > 0 ? 'mt-8 pt-8 border-t border-white/6' : ''}>
                 <span className="text-walnut text-[9px] tracking-[0.32em] uppercase font-body font-bold block mb-3">
                   {block.label}
                 </span>
@@ -204,7 +205,7 @@ function FormField({ label, id, error, children }: {
 }) {
   return (
     <motion.label htmlFor={id} className="block" variants={slideUp}>
-      <span className="font-body text-[9px] tracking-[0.28em] uppercase text-cream/35 block mb-2">
+      <span className="font-body text-[11px] tracking-[0.28em] uppercase text-cream/55 block mb-2">
         {label}
       </span>
       {children}
@@ -235,7 +236,7 @@ function TextInput({ id, type, value, onChange, hasError }: {
       onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
       className="w-full bg-transparent pb-2 pt-2 font-body text-[14px] text-cream outline-none transition-colors duration-200"
       style={{
-        borderBottom: `1px solid ${hasError ? '#b91c1c' : focused ? '#DA4F37' : 'rgba(255,255,255,0.15)'}`,
+        borderBottom: `1px solid ${hasError ? 'var(--color-danger)' : focused ? 'var(--color-walnut)' : 'rgba(255,255,255,0.15)'}`,
         borderTop: 'none', borderLeft: 'none', borderRight: 'none',
       }}
     />

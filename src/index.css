@@ -1,43 +1,66 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — Amr Ziada Interiors Style Guide */
-  --color-cream:    #FAFCFC;
-  --color-walnut:   #DA4F37;
-  --color-sand:     #C9C9C9;
-  --color-charcoal: #373A3B;
-  --color-obsidian: #0F1011;
-  --color-surface:  #1A1B1D;
-  --color-card:     #232527;
-  --color-mist:     #FAFCFC;
-  --color-terra:    #DA4F37;
-  --color-ash:      #C9C9C9;
+  /* Brand palette — Amr Ziada Interiors (OKLCH) */
+  --color-cream:       oklch(0.992 0.002 197);
+  --color-walnut:      oklch(0.635 0.162 33);
+  --color-walnut-dark: oklch(0.535 0.158 33);
+  --color-sand:        oklch(0.835 0 0);
+  --color-charcoal:    oklch(0.330 0.004 230);
+  --color-obsidian:    oklch(0.155 0.003 250);
+  --color-surface:     oklch(0.215 0.003 250);
+  --color-card:        oklch(0.255 0.003 250);
+  --color-danger:      oklch(0.515 0.205 27);
+  /* Aliases kept for existing markup */
+  --color-mist:        oklch(0.992 0.002 197);
+  --color-terra:       oklch(0.635 0.162 33);
+  --color-ash:         oklch(0.835 0 0);
 
-  --font-display: "Inter", system-ui, sans-serif;
-  --font-body:    "Inter", system-ui, sans-serif;
-  --font-sans:    "Inter", system-ui, sans-serif;
-  --font-logo:    "Inter", system-ui, sans-serif;
+  --font-display: "Nunito", "Cairo", system-ui, sans-serif;
+  --font-body:    "Nunito", "Cairo", system-ui, sans-serif;
+  --font-sans:    "Nunito", "Cairo", system-ui, sans-serif;
+  --font-logo:    "Nunito", "Cairo", system-ui, sans-serif;
 }
 
 @layer base {
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    background: #0F1011;
-    color: #FAFCFC;
-    font-family: "Inter", system-ui, sans-serif;
+    background: var(--color-obsidian);
+    color: var(--color-cream);
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  ::selection { background: rgba(218,79,55,0.30); color: #FAFCFC; }
+  ::selection { background: color-mix(in oklch, var(--color-walnut) 30%, transparent); color: var(--color-cream); }
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: #0F1011; }
-  ::-webkit-scrollbar-thumb { background: #373A3B; border-radius: 2px; }
-  ::-webkit-scrollbar-thumb:hover { background: #DA4F37; }
+  ::-webkit-scrollbar-track { background: var(--color-obsidian); }
+  ::-webkit-scrollbar-thumb { background: var(--color-charcoal); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-walnut); }
+
+  /* Keyboard focus — visible ring for every interactive element */
+  :focus-visible {
+    outline: 2px solid var(--color-walnut);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  :focus:not(:focus-visible) { outline: none; }
 }
 
 @layer utilities {
   .preserve-3d       { transform-style: preserve-3d; }
   .backface-hidden   { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
   .perspective-1200  { perspective: 1200px; }
+}
+
+/* Reduced motion — collapse animations to near-instant crossfades */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

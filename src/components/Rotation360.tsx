@@ -1,5 +1,6 @@
 import { useRef, useCallback, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, animate } from 'framer-motion'
+import { asset } from '../utils/asset'
 import type { Project } from '../types'
 
 export default function Rotation360({ project }: { project: Project }) {
@@ -79,7 +80,7 @@ export default function Rotation360({ project }: { project: Project }) {
         >
           {/* Front */}
           <div className="absolute inset-0 overflow-hidden" style={{ backfaceVisibility: 'hidden' }}>
-            <img src={project.img} alt={project.title} className="w-full h-full object-cover" draggable={false} />
+            <img src={asset(project.img)} alt={project.title} className="w-full h-full object-cover" draggable={false} />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <span className="text-walnut text-[10px] tracking-[0.28em] uppercase font-body">{project.tag}</span>
@@ -125,10 +126,15 @@ export default function Rotation360({ project }: { project: Project }) {
             style={{ pathLength: arcLen }}
           />
         </svg>
-        <motion.button onClick={reset}
-          className="w-8 h-8 flex items-center justify-center border border-white/15 text-cream/50 hover:text-cream bg-black/40 backdrop-blur-sm rounded-sm text-base"
+        <motion.button onClick={reset} aria-label="Reset rotation"
+          className="w-8 h-8 flex items-center justify-center border border-white/15 text-cream/50 hover:text-cream bg-black/40 backdrop-blur-sm rounded-sm"
           whileHover={{ scale: 1.1, rotate: -30 }} whileTap={{ scale: 0.9 }}
-        >↺</motion.button>
+        >
+          <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" aria-hidden="true">
+            <path d="M4.5 12a7.5 7.5 0 1 1 2.2 5.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M4 7v4.5h4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </motion.button>
         <motion.button onClick={() => setSnapMode(s => !s)}
           className={`h-8 px-2.5 text-[9px] tracking-widest uppercase border backdrop-blur-sm rounded-sm font-body ${snapMode ? 'border-walnut/60 text-walnut bg-walnut/10' : 'border-white/15 text-cream/40 bg-black/40'}`}
           whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
